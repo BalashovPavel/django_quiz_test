@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}TQuiz{% endblock title %}
+{% block header %} {% include 'test_app/header.html' %} {% endblock header %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="page">
+
+            <div class="page__title">
+                Вопрос {{ num_question }}
+            </div>
+            <div class="page__subtitle">
+                {{ question.text }}
+            </div>
+            <form method="post" id="form-id">
+                {% csrf_token %}
+                <ol type="A">
+                {% for choice in form.choices %}
+                        <li class='list_checkbox'>{{ choice }}</li>
+                {% endfor %}
+                </ol>
+
+                <div class="page__list-tests">
+                    <ul class="list-tests">
+                        {% if num_question > 1 %}
+                            <li class="list-tests__item test-theme">
+                                <div class="list-tests__item__theme">
+                                    <a href="{% url 'test_questions' quiz.uuid prev_question %}"><i
+                                            class="fa fa-arrow-left" aria-hidden="true"></i>Предыдущий</a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="list-tests__item test-theme">
+                                <div class="list-tests__item__theme not_active">
+                                    <a><i class="fa fa-arrow-left not_active" aria-hidden="true"></i>Предыдущий</a>
+                                </div>
+                            </li>
+                        {% endif %}
+                        {% if num_question != max_num %}
+                            <li class="list-tests__item test-theme">
+                                <div class="list-tests__item__theme">
+                                    <a onclick="document.forms['form-id'].submit();">Следующий<i
+                                            class="fa fa-arrow-right"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="list-tests__item test-theme">
+                                <div class="list-tests__item__theme">
+                                    <a onclick="document.forms['form-id'].submit();">Завершить
+                                        тест</a>
+                                </div>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock body %}

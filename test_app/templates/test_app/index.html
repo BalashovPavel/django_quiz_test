@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}TQuiz{% endblock title %}
+{% block header %} {% include 'test_app/header.html' %} {% endblock header %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="intro">
+            <div class="intro-element">
+                <p>Добро пожаловать в сервис тестов TQuiz</p>
+                <a href="{% url 'list_tests' %}">
+                    <button class="intro-button" type="button">Перейти к тестам</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+

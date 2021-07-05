@@ -1,0 +1,14 @@
+.list-answers{
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 0 20px .5em 43px;
+}
+
+.list-answers__item{
+    padding: 0 0 .3em 0;
+}
+
+.test-result {
+    width: 100%;
+    margin: 0 auto;
+}

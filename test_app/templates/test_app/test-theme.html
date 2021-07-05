@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}TQuiz{% endblock title %}
+{% block header %} {% include 'test_app/header.html' %} {% endblock header %}
+
+{% block body %}
+    <div class="container">
+        <div class="page">
+            <div class="page__title">
+                Тест на тему "{{ theme.quiz_title }}"
+            </div>
+            <div class="page__subtitle">
+                Количество вопросов: {{ theme.question.count }}
+            </div>
+            <div class="page__list-tests">
+                <ul class="list-tests">
+                    <li class="list-tests__item test-theme">
+                        <div class="list-tests__item__theme">
+                            <a href="{% url 'list_tests' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Вернуться</a>
+                        </div>
+                    </li>
+                    <li class="list-tests__item test-theme">
+                        <div class="list-tests__item__theme {% if theme.question.count < 1 %} not_active {% endif %}">
+                            <a href="{% url 'test_questions' theme.quiz_uuid 1 %}">Начать тест<i class="fa fa-arrow-right {% if theme.question.count < 1 %} not_active {% endif %}"
+                                                                         aria-hidden="true"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

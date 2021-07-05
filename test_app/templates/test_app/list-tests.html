@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}TQuiz{% endblock title %}
+{% block header %} {% include 'test_app/header.html' %} {% endblock header %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="page">
+            <div class="page__title">
+                Тесты
+            </div>
+            <div class="page__subtitle">
+                Выберите тему теста, который хотите пройти
+            </div>
+            <div class="page__list-tests">
+                <ul class="list-tests">
+
+                    {% for rs in list %}
+
+                        <li class="list-tests__item">
+                            <div class="list-tests__item__theme">
+                                <a href="{% url 'test_theme' rs.quiz_uuid %}">{{ rs.quiz_title }}</a>
+                            </div>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

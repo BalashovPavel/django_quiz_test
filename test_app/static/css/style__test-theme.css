@@ -1,0 +1,41 @@
+.test-theme {
+    width: 20%;
+}
+
+@media screen and (max-width: 1024px) {
+    .test-theme {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .test-theme {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .test-theme {
+        width: 100%;
+    }
+}
+
+/* Иконки стрелок */
+
+.fa {
+    display: inline-block;
+    font-weight: 400;
+    color: var(--light-indigo);
+}
+
+a .not_active{
+    color: #AAAAEE60;
+}
+
+.fa-arrow-left {
+    padding-right: .5em;
+}
+
+.fa-arrow-right {
+    padding-left: .5em;
+}

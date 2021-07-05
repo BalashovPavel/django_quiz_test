@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}TQuiz{% endblock title %}
+{% block header %} {% include 'test_app/header.html' %} {% endblock header %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="page">
+            <div class="page__title">
+                Результат тестированания на тему "{{ quiz.quiz_title }}"
+            </div>
+            <div class="page__subtitle">
+                Список ваших ответов:
+            </div>
+            <div class="page__list-answers">
+                <ol class="list-answers">
+                    {% for ch in checked %}
+                        <li class="list-answers__item">
+                        <span>
+                            {% for c in ch %}
+                                {{ c }}{% if not forloop.last %},{% endif %}
+                            {% endfor %}
+                        </span>
+                        </li>
+                    {% endfor %}
+                </ol>
+                <div class="page__subtitle">Ваш результат: {{ result }}</div>
+                <ul class="list-tests">
+                        <li class="list-tests__item test-result">
+                            <div class="list-tests__item__theme">
+                                <a href="{% url 'list_tests' %}">Другие тесты</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

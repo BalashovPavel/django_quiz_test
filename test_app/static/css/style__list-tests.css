@@ -1,0 +1,110 @@
+/* Список тестов */
+
+.page {
+    width: 90%;
+    max-width: 1200px;
+    height: fit-content;
+    min-height: 100vh;
+    background-color: #ffffff;
+    margin: auto;
+    padding-top: var(--Indent-Header);
+}
+
+.page__title {
+    font-size: 2.3rem;
+    font-weight: 600;
+    padding: 1em 20px .5em 20px;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    word-wrap: break-word;
+}
+
+.page__subtitle {
+    font-size: 1.4rem;
+    padding: 0 20px .8em 20px;
+}
+
+.list-tests {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+.list-tests__item {
+    font-size: 1.1rem;
+    width: 25%;
+    text-align: center;
+    padding: .5em;
+}
+
+.list-tests__item__theme a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: .5em .2em;
+    font-weight: 600;
+    color: var(--color-button);
+    border: solid 3px var(--light-indigo);
+    border-radius: .4em;
+    -o-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.not_active a {
+    cursor: default;
+    color: #52529560;
+    border: solid 3px #AAAAEE60;
+}
+
+.list-tests__item__theme a:hover {
+    /*     -o-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    -moz-transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05); */
+    background-color: var(--color-button);
+    border: solid 3px var(--color-button);
+    box-shadow: 0 2px 8px 2px #20202030;
+    color: #ffffff;
+}
+
+.not_active a:hover {
+    background-color: #ffffff00;
+    box-shadow: 0 2px 8px 2px #20202000;
+    border: solid 3px #AAAAEE60;
+    color: #52529560;
+}
+
+
+
+.list_checkbox{
+    font-size: 1.1rem;
+    padding: .2em 0;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .list-tests__item {
+        width: 33.3%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .list-tests__item {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .list-tests__item {
+        width: 100%;
+    }
+}
